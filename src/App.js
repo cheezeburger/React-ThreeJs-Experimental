@@ -1,11 +1,12 @@
 import * as THREE from "three";
-import ReactDOM from "react-dom";
 import React, { useState, useCallback, useRef } from "react";
 import { Canvas } from "react-three-fiber";
 import Effects from "./Components/Effects";
 import Sparks from "./Components/Sparks";
 import Particles from "./Components/Particles";
 import "./styles.css";
+import ReactJkMusicPlayer from "react-jinke-music-player";
+import "react-jinke-music-player/assets/index.css";
 
 function App() {
   const [hovered, hover] = useState(false);
@@ -66,13 +67,83 @@ function App() {
         }}
       >
         <fog attach="fog" args={["red", 50, 190]} />
-        <pointLight distance={100} intensity={4} color="white" />
+        <pointLight distance={100} intensity={10} color="white" />
         <Particles count={isMobile ? 300 : 500} mouse={mouse} />
 		<Sparks count={25} mouse={mouse} colors={['#A2CCB6', '#FCEEB5', '#EE786E', '#e0feff', 'lightpink', 'lightblue']} />
         <Effects down={down} />
       </Canvas>
+	  <ReactJkMusicPlayer 
+		autoPlay={true} 
+		showDownload={false}
+		spaceBar={true}
+		showDestroy={false}
+		toggleMode={false}
+		mode='full'
+		showMiniModeCover={false}
+		responsive={false}
+		audioLists={audioList}
+	/>
     </>
   );
 }
 
+const audioList = [
+	{
+		name: '4a.m. Dream',
+		singer: 'ramp!',
+		musicSrc:() => {
+			return Promise.resolve(
+			  'https://res.cloudinary.com/graphicito/video/upload/v1589036649/4a.m._Dream_iio611.wav'
+			)
+		  },
+	},
+	{
+		name: 'Lost Track',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037919/Canyouseeimlost_jl4m1h.wav',
+	},
+	{
+		name: 'Colorless',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037157/Colorless_jn2opd.wav',
+	},
+	{
+		name: 'Frozen Fairytail',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037841/Frozen_Fairy_Tail_imuyeo.wav',
+	},
+	{
+		name: 'Hearing Things',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037859/You_are_hearing_things_dobvrg.wav',
+	},
+	{
+		name: 'Relate',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037857/Relate_lu5ip9.wav',
+	},
+	{
+		name: 'Tidal Waves',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037837/Tide_wave_oqc6da.wav',
+	},
+	{
+		name: 'Time in Motion',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037822/Time_in_Motion_yreyzn.wav',
+	},
+	{
+		name: 'The Magical Harp',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037585/The_Magical_Harp_l4opv4.wav',
+	},
+]
 export default App;
