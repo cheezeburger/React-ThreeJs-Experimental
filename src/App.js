@@ -145,5 +145,11 @@ const audioList = [
 		musicSrc:
 		  'https://res.cloudinary.com/graphicito/video/upload/v1589037585/The_Magical_Harp_l4opv4.wav',
 	},
+	{
+		name: 'The Frozen Ballroom',
+		singer: 'ramp!',
+		musicSrc:
+		  'https://res.cloudinary.com/graphicito/video/upload/v1589037848/the_frozen_ballroom_p4ggdn.wav',
+	},
 ]
 export default App;
